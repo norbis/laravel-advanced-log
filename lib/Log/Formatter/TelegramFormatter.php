@@ -1,4 +1,5 @@
 <?php
+
 namespace Norbis\AdvancedLog\Log\Formatter;
 
 use Monolog\Formatter\LineFormatter;
@@ -31,7 +32,7 @@ class TelegramFormatter extends LineFormatter
 
         $extraLines = [];
         foreach ($vars['extra'] as $var => $val) {
-            $extraLines[] = "<b>$var</b>\n" . $this->stringify($val);
+            $extraLines[] = "<b>$var</b>\n".$this->stringify($val);
         }
         $vars['extra'] = implode("\n", $extraLines);
 
