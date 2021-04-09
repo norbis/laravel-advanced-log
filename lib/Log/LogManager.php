@@ -2,25 +2,26 @@
 
 namespace Norbis\AdvancedLog\Log;
 
-use Norbis\AdvancedLog\Log\Formatter\TelegramFormatter;
 use Monolog\Handler\TelegramBotHandler;
 use Monolog\Logger as Monolog;
+use Norbis\AdvancedLog\Log\Formatter\TelegramFormatter;
 
 /**
- * Class LogManager
- * @package Norbis\AdvancedLog\Log
+ * Class LogManager.
  */
 class LogManager extends \Illuminate\Log\LogManager
 {
     /**
      * Create an instance of the Telegram log driver.
      *
-     * @param  array  $config
+     * @param array $config
+     *
      * @return \Psr\Log\LoggerInterface
      */
     protected function createTelegramDriver(array $config)
     {
         $config['formatter'] = $config['formatter'] ?? TelegramFormatter::class;
+
         return new Monolog($this->parseChannel($config), [
             $this->prepareHandler(new TelegramBotHandler(
                 $config['apiKey'],

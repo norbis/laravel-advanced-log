@@ -6,8 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Norbis\AdvancedLog\Log\LogManager;
 
 /**
- * Class LogServiceProvider
- * @package Norbis\AdvancedLog
+ * Class LogServiceProvider.
  */
 class LogServiceProvider extends ServiceProvider
 {
